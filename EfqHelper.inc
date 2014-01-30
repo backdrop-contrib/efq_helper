@@ -40,7 +40,7 @@ class EfqHelper extends EntityFieldQuery {
     if ($this->result === NULL) {
       $raw = $this->execute();
       if (!empty($raw[$this->enitty_type])) {
-        $this->result = entity_load($this->enitty_type, $raw[$this->enitty_type]);
+        $this->result = entity_load($this->enitty_type, array_keys($raw[$this->enitty_type]));
       }
       else {
         $this->result = array();
