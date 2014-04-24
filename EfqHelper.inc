@@ -52,4 +52,19 @@ class EfqHelper extends EntityFieldQuery {
     return $this->result;
   }
 
+  /**
+   * Loads the full entity of the first result.
+   */
+  public function first() {
+    if ($this->first === NULL) {
+      $raw = $this->execute();
+      if (!empty($raw[$this->entity_type])) {
+        $etids = array_keys($raw[$this->entity_type]);
+        $etid = reset($etids);
+        $this->first = entity_load_single($this->entity_type, $etid);
+      }
+    }
+    return $this->first;
+  }
+
 }
