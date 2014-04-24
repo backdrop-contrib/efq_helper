@@ -6,8 +6,7 @@
 class EfqHelper extends EntityFieldQuery {
 
   // Identifies the entity type this query is querying for.
-  protected $enitty_type;
-
+  protected $entity_type;
   // Result of the underlying EntityFieldQuery, computed once then held onto
   // throughout the life the object.
   protected $raw = NULL;
@@ -15,9 +14,13 @@ class EfqHelper extends EntityFieldQuery {
   // entities. This is computed once then held onto throughout the life the
   // object.
   protected $result = NULL;
+  // First result of the underlying EntityFieldQuery, loaded into a 
+  // fully-populated entity. This is computed once then held onto throughout the 
+  // life theobject.
+  protected $first = NULL;
 
   public function __construct($entity_type) {
-    $this->enitty_type = $entity_type;
+    $this->entity_type = $entity_type;
     $this->entityCondition('entity_type', $entity_type);
   }
 
@@ -39,8 +42,8 @@ class EfqHelper extends EntityFieldQuery {
   public function result() {
     if ($this->result === NULL) {
       $raw = $this->execute();
-      if (!empty($raw[$this->enitty_type])) {
-        $this->result = entity_load($this->enitty_type, array_keys($raw[$this->enitty_type]));
+      if (!empty($raw[$this->entity_type])) {
+        $this->result = entity_load($this->entity_type, array_keys($raw[$this->entity_type]));
       }
       else {
         $this->result = array();
