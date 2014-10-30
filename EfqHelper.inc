@@ -8,15 +8,15 @@ class EfqHelper extends EntityFieldQuery {
   // Identifies the entity type this query is querying for.
   protected $entity_type;
   // Result of the underlying EntityFieldQuery, computed once then held onto
-  // throughout the life the object.
+  // throughout the life of the object.
   protected $raw = NULL;
   // Result of the underlying EntityFieldQuery, loaded into fully-populated 
-  // entities. This is computed once then held onto throughout the life the
+  // entities. This is computed once then held onto throughout the life of the
   // object.
   protected $result = NULL;
   // First result of the underlying EntityFieldQuery, loaded into a 
   // fully-populated entity. This is computed once then held onto throughout the 
-  // life theobject.
+  // life of the object.
   protected $first = NULL;
 
   public function __construct($entity_type) {
