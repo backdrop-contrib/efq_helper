@@ -60,9 +60,8 @@ class EfqHelper extends EntityFieldQuery {
    */
   public function result() {
     if ($this->result === NULL) {
-      $raw = $this->execute();
       if (!empty($raw[$this->entity_type])) {
-        $this->result = entity_load($this->entity_type, array_keys($raw[$this->entity_type]));
+        $this->result = entity_load($this->entity_type, $this->ids());
       }
       else {
         $this->result = array();
@@ -76,10 +75,9 @@ class EfqHelper extends EntityFieldQuery {
    */
   public function first() {
     if ($this->first === NULL) {
-      $raw = $this->execute();
-      if (!empty($raw[$this->entity_type])) {
-        $etids = array_keys($raw[$this->entity_type]);
-        $etid = reset($etids);
+      $ids = $this->ids();
+      if (!empty($ids)) {
+        $etid = reset($ids);
         $this->first = entity_load_single($this->entity_type, $etid);
       }
     }
