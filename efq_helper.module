@@ -5,4 +5,11 @@
  * EFQ Helper module code.
  */
 
-// This file intentionally left blank.
+/**
+ * Implements hook_autoload_info().
+ */
+function efq_helper_autoload_info() {
+  return array(
+    'EfqHelper' => 'EfqHelper.inc',
+  );
+}

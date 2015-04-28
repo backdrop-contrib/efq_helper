@@ -1,6 +1,4 @@
 name = EFQ Helper
 description = "Provides the EfqHelper class which extends EntityFieldQuery to aid in development."
 package = Development
-core = 7.x
-tags[] = developer
-files[] = EfqHelper.inc
+backdrop = 1.x
