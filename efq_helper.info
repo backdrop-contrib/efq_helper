@@ -2,3 +2,4 @@ name = EFQ Helper
 description = "Provides the EfqHelper class which extends EntityFieldQuery to aid in development."
 package = Development
 backdrop = 1.x
+type = module
