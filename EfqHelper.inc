@@ -75,11 +75,10 @@ class EfqHelper extends EntityFieldQuery {
    */
   public function first() {
     if ($this->first === NULL) {
-      $ids = $this->ids();
-      if (!empty($ids)) {
-        $etid = reset($ids);
-        $this->first = entity_load_single($this->entity_type, $etid);
-      }
+      $id = $this->ids();
+      $id = reset($id);
+      $this->first = entity_load($this->entity_type, array($id));
+      $this->first = reset($this->first);
     }
     return $this->first;
   }
