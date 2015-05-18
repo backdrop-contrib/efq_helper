@@ -60,6 +60,7 @@ class EfqHelper extends EntityFieldQuery {
    */
   public function result() {
     if ($this->result === NULL) {
+      $raw = $this->execute();
       if (!empty($raw[$this->entity_type])) {
         $this->result = entity_load($this->entity_type, $this->ids());
       }
