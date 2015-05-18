@@ -6,20 +6,9 @@
  * EfqHelperTest class.
  */
 
-class EfqHelperTest extends DrupalWebTestCase {
+class EfqHelperTest extends BackdropWebTestCase {
 
   protected $nodes = array();
-
-  /**
-   * Test information for SimpleTest display.
-   */
-  public static function getInfo() {
-    return array(
-      'name' => 'EfqHelper Test',
-      'description' => 'Tests to ensure EfqHelper performs expected query functionality.',
-      'group' => 'EfqHelper',
-    );
-  }
 
   /**
    * @inherit
@@ -33,21 +22,21 @@ class EfqHelperTest extends DrupalWebTestCase {
       'title' => 'One',
       'body' => array(LANGUAGE_NONE => array(array($this->randomName(64)))),
     );
-    $nodes[] = $this->drupalCreateNode($settings);
+    $this->nodes[] = $this->backdropCreateNode($settings);
     $settings = array(
       'type' => 'page',
       'title' => 'Two',
       'body' => array(LANGUAGE_NONE => array(array($this->randomName(64)))),
     );
-    $nodes[] = $this->drupalCreateNode($settings);
+    $this->nodes[] = $this->backdropCreateNode($settings);
     $settings = array(
       'type' => 'page',
       'title' => 'Three',
       'body' => array(LANGUAGE_NONE => array(array($this->randomName(64)))),
     );
-    $nodes[] = $this->drupalCreateNode($settings);
+    $this->nodes[] = $this->backdropCreateNode($settings);
 
-    $this->verbose('Nodes created: ' . var_export($nodes, TRUE));
+    $this->verbose('Nodes created: ' . var_export($this->nodes, TRUE));
   }
 
   /**

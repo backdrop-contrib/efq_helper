@@ -1,0 +1,5 @@
+[EfqHelperTest]
+name = EfqHelper Test
+description = Tests to ensure EfqHelper performs expected query functionality.
+group = EfqHelper
+file = EfqHelperTest.test

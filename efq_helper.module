@@ -11,6 +11,5 @@
 function efq_helper_autoload_info() {
   return array(
     'EfqHelper' => 'EfqHelper.inc',
-    'EfqHelperTest' => 'EfqHelperTest.test',
   );
 }
